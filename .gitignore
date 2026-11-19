@@ -1,0 +1,21 @@
+# Large downloaded DALTON data / Colab local cache
+DALTON/
+data/
+*.zip
+!poster/*.zip
+# Notebook transient state
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+# Local environment and secrets
+.env
+.env.*
+.venv/
+*.pem
+*.key
+# Temporary computational arrays and TensorFlow logs
+*.npy
+*.npz
+logs/
+checkpoints/
+# Generated data exported by a run can be committed selectively

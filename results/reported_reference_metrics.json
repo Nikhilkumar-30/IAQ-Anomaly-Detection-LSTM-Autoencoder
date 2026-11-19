@@ -1,0 +1,83 @@
+{
+  "provenance": "User-reported outputs from earlier independent Google Colab run; NOT reexecuted or verified from a model checkpoint in this repository.",
+  "dataset": "DALTON / H1 / 41_Kitchen.csv",
+  "split": {
+    "train_dates": [
+      "2023_05_28",
+      "2023_05_29",
+      "2023_05_30"
+    ],
+    "validation_dates": [
+      "2023_05_31"
+    ],
+    "test_dates": [
+      "2023_06_04",
+      "2023_06_05"
+    ]
+  },
+  "sequences": {
+    "training": 246009,
+    "validation": 86282,
+    "test": 172564
+  },
+  "lstm": {
+    "parameters": 15242,
+    "training_mse_final": 3.0279139537015e-05,
+    "validation_mse_best": 6.08153895882424e-05,
+    "threshold_val_p99": 0.0011406003,
+    "test_flagged": 11623,
+    "test_flag_rate_pct": 6.735472
+  },
+  "isolation_forest": {
+    "threshold_val_p99": 0.6025597955256119,
+    "test_flagged": 2251,
+    "test_flag_rate_pct": 1.304444
+  },
+  "synthetic_comparison": {
+    "protocol": "4000 samples: 2000 original unfiltered non-overlapping test windows (ASSUMED normal) + 2000 paired modified windows (synthetic anomaly); stronger artificial perturbations.",
+    "lstm": {
+      "accuracy_pct": 96.8,
+      "precision_pct": 93.985,
+      "recall_pct": 100.0,
+      "f1_pct": 96.899,
+      "tn": 1872,
+      "fp": 128,
+      "fn": 0,
+      "tp": 2000
+    },
+    "isolation_forest": {
+      "accuracy_pct": 64.525,
+      "precision_pct": 95.46,
+      "recall_pct": 30.5,
+      "f1_pct": 46.23,
+      "tn": 1971,
+      "fp": 29,
+      "fn": 1390,
+      "tp": 610
+    }
+  },
+  "activity_annotation": {
+    "total": 165,
+    "with_flag_in_5_min_window": 27
+  },
+  "distinct_flag_events": 23,
+  "feature_contribution_pct": {
+    "H": 37.423149,
+    "PMS10": 13.874194,
+    "PMS1": 10.418267,
+    "NO2": 9.56673,
+    "C2H5OH": 9.234318,
+    "CO2": 4.81532,
+    "PMS2_5": 4.012412,
+    "VoC": 3.950817,
+    "T": 3.353074,
+    "CO": 3.351717
+  },
+  "limitations": [
+    "No verified binary anomaly labels in the original DALTON activity annotations.",
+    "Original windows are assumed normal in controlled synthetic evaluation but some may be unusual.",
+    "Injected shifts/noise/spikes are relatively strong and expressed in normalized units.",
+    "Baseline and LSTM use different representations and training sample counts.",
+    "This repository does not contain the earlier trained 15,242-parameter checkpoint."
+  ]
+}
