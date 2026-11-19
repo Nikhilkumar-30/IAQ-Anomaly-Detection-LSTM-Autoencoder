@@ -76,8 +76,9 @@ Indoor air quality monitoring requires detection of unusual multivariate sensor 
 \begin{tabular}{@{}p{0.34\linewidth}p{0.62\linewidth}@{}}
 \toprule\textbf{Parameter}&\textbf{Configuration}\\\midrule
 Dataset / site&DALTON, H1 Kitchen, sensor 41\\
-Train / validation / test&May 28--30 / May 31 / Jun 4--5, 2023\\
-Sequences&246,009 / 86,282 / 172,564\\
+Split (train / val / test)&48.7\% / 17.1\% / 34.2\% (by windows)\\
+Chronological dates&May 28--30 / May 31 / Jun 4--5, 2023\\
+Sequences (train / val / test)&246,009 / 86,282 / 172,564\\
 LSTM architecture&32--16 bottleneck--32; 15,242 parameters\\
 Training&30 epochs, batch 256, Adam, MSE\\
 Isolation Forest&200 trees; 40 statistical features\\
