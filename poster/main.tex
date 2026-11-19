@@ -77,11 +77,13 @@ Indoor air quality monitoring requires detection of unusual multivariate sensor 
 \toprule\textbf{Parameter}&\textbf{Configuration}\\\midrule
 Dataset / site&DALTON, H1 Kitchen, sensor 41\\
 Split (train / val / test)&48.7\% / 17.1\% / 34.2\% (by windows)\\
-Chronological dates&May 28--30 / May 31 / Jun 4--5, 2023\\
 Sequences (train / val / test)&246,009 / 86,282 / 172,564\\
 LSTM architecture&32--16 bottleneck--32; 15,242 parameters\\
 Training&30 epochs, batch 256, Adam, MSE\\
 Isolation Forest&200 trees; 40 statistical features\\
+Model convergence &
+Train MSE: $3.03\times10^{-5}$;
+Best val. MSE: $6.08\times10^{-5}$\\
 Environment&Python, TensorFlow, scikit-learn, Colab T4\\
 \bottomrule
 \end{tabular}
@@ -126,6 +128,11 @@ Isolation Forest&64.53&\textbf{95.46}&30.50&46.23\\
 23 LSTM detection events; 27/165 activity
 annotations had nearby flags ($\pm 5$ min).
 
+\item \textbf{Activity evidence:}
+Event 2 coincided with frying fish and exhaust
+activation; Event 20 overlapped frying onion,
+ginger and garlic.
+
 \item \textbf{Feature analysis:}
 Humidity contributed 37.42\% of
 reconstruction MSE in flagged windows.
@@ -137,7 +144,10 @@ reconstruction MSE in flagged windows.
 \item \textbf{Strength:} LSTM detected 2,000/2,000 synthetic disturbances; Isolation Forest detected 610/2,000.
 \item \textbf{Trade-off:} LSTM flagged 128 unmodified test windows; Isolation Forest flagged 29 (assumed-normal labels).
 \item \textbf{Event evidence:} Several high-error periods matched significant sensor shifts near cooking records.
-\item \textbf{Limitation:} Activity annotations are not verified anomaly ground truth; synthetic perturbations were relatively strong.
+\item \textbf{Limitation:}
+Activity annotations are not verified anomaly
+labels; strong synthetic disturbances may
+overestimate real-world detection performance.
 \end{itemize}
 \end{posterblock}
 \begin{posterblock}{Conclusion and Future Work}
