@@ -2,6 +2,7 @@
 \usepackage[a3paper,margin=9mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[scaled]{helvet}
+\usepackage{qrcode}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{graphicx,amsmath,booktabs,array,xcolor,tcolorbox,enumitem,adjustbox,hyperref}
 \tcbuselibrary{skins}
@@ -109,11 +110,26 @@ Isolation Forest&64.53&\textbf{95.46}&30.50&46.23\\
 \includegraphics[width=0.96\linewidth,height=42mm,keepaspectratio]{fig_result2.png}
 \par\vspace{0.5mm}\figcap{Figure 3. Feature-wise share of reconstruction MSE in flagged windows.}
 \end{center}
+
 \begin{itemize}
-\item Real test: \textbf{11,623 / 172,564} windows flagged (\textbf{6.74\%}).
-\item \textbf{23} distinct events; \textbf{27/165} annotations had flags within $\pm 5$ min.
-\item Humidity contributed \textbf{37.42\%} of MSE in flagged windows.
+\item \textbf{Real DALTON test:}
+172,564 windows across two unseen dates.
+
+\item \textbf{LSTM Autoencoder:}
+11,623 flagged windows (6.74\%).
+
+\item \textbf{Isolation Forest:}
+2,251 flagged windows (1.30\%).
+
+\item \textbf{Event analysis:}
+23 LSTM detection events; 27/165 activity
+annotations had nearby flags ($\pm 5$ min).
+
+\item \textbf{Feature analysis:}
+Humidity contributed 37.42\% of
+reconstruction MSE in flagged windows.
 \end{itemize}
+
 \end{posterblock}
 \begin{posterblock}{Discussion}
 \begin{itemize}
@@ -140,11 +156,51 @@ Isolation Forest&64.53&\textbf{95.46}&30.50&46.23\\
 \end{minipage}%
 \hfill%
 \begin{minipage}[t]{0.34\linewidth}\vspace{0pt}
+
+
+% ============================================================
+% REPORT AND CODE
+% ============================================================
+
 \begin{posterblock}{Report and Code}
+
+\centering
+
+% GitHub QR Code
+\qrcode[height=16mm]{
+https://github.com/Nikhilkumar-30/IAQ-Anomaly-Detection-LSTM-Autoencoder
+}
+
+\vspace{1.5mm}
+
+{\scriptsize\bfseries
+Scan for Report and Code
+}
+
+\vspace{2mm}
+
+\raggedright
 \scriptsize
-Report and Google Colab notebook submitted separately.\par\vspace{1mm}
-\textbf{Acknowledgment:} Dr. Ritesh Vyas.
+
+\textbf{Contact:}\\
+{
+Nikhil: h20250104@pilani.bits-pilani.ac.in
+}\par
+{
+Akash: h20250043@pilani.bits-pilani.ac.in
+}
+
+\vspace{2mm}
+
+\textbf{Acknowledgements:}\\
+We thank Dr. Ritesh Vyas for his guidance,
+BITS Pilani for academic resources,
+and the DALTON dataset contributors
+for making the data available.
+
 \end{posterblock}
+
+
 \end{minipage}
 \end{minipage}
 \end{minipage}
